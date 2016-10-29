@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="AngularApp">
+<head>
+  <title>Star Wars App</title>
+
+  <!-- include AngualrJS js -->
+  <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+
+  <!-- our files -->
+  <script type="text/javascript" src="js/app.js"></script>
+
+  <!-- Services -->
+  <script type="text/javascript" src="js/swapi.js"></script>
+
+  <!-- Bootstrap JS and CSS -->
+  <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="css/main.min.css">
+
+</head>
+<body ng-controller="MainCtrl">
+<div class="container page-wrap">
+  <div class="row"><h1>Star Wars <span id="header_title">Encyclopedia</span></h1>
+    <hr>
+  </div>
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active" >
+      <a href="#"><span class="glyphicon glyphicon-user"></span> People</a>
+    </li>
+  </ul>
+  <input type="search" class="form-control upper_margin"  id="email" placeholder="Start type for searching..." ng-model="searching">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Created at</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="person in data | filter:searching">
+      <td>{{person.name}}</td>
+      <td ng-style="{'color': person.color}">{{person.gender|capitalize}}</td>
+      <td>{{person.created|date:'short'}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+</body>
+</html>
