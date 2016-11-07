@@ -1,4 +1,4 @@
-var angularApp = angular.module('AngularApp', ['swapi']);
+var angularApp = angular.module('AngularApp', ['swapi','angularUtils.directives.dirPagination']);
 angularApp.controller('MainCtrl', [
     '$scope',
     'SwapiService',
@@ -37,14 +37,12 @@ angularApp.controller('MainCtrl', [
                     }
 
                 })
-
-                ;
-                console.log($scope.data);
             });
 
     }
 ]
 );
+
 
 angularApp.filter('capitalize', function() {
     return function(input) {
